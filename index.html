@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>This is my first web page</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: linear-gradient(-45deg, #89f7fe, #66a6ff, #ff6ec4, #f6d365);
+            background-size: 400% 400%;
+            animation: gradientBG 12s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            max-width: 500px;
+            padding: 25px 30px;
+            border-radius: 15px;
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .username {
+            font-weight: 700;
+            font-size: 1.4em;
+            margin-bottom: 5px;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .games {
+            font-weight: 700;
+            font-size: 1.2em;
+            text-decoration: underline;
+            margin-bottom: 20px;
+        }
+
+        button.game-btn {
+            background-color: #66a6ff;
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        button.game-btn:hover {
+            background-color: #89f7fe;
+            color: #333;
+            transform: scale(1.05);
+        }
+
+        #description {
+            margin-top: 20px;
+            font-style: italic;
+            font-size: 1.1em;
+            min-height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="Images/koop.jpeg" alt="Profile Picture">
+        <p class="username">PSN: Xpertkoop</p>
+        <p>Add my PSN to game with me!</p>
+        <p class="games">These are the many games that I love to play</p>
+
+        <div id="game-buttons">
+            <button class="game-btn" data-desc="A realistic basketball simulation game featuring NBA teams, MyCareer mode, and online play.">NBA 2K</button>
+            <button class="game-btn" data-desc="A first-person shooter with multiple game modes including battle royale and zombies.">Call of Duty</button>
+            <button class="game-btn" data-desc="A fast-paced battle royale game with unique characters and abilities.">Apex Legends</button>
+            <button class="game-btn" data-desc="A platform full of user-created games and worlds to explore and play with friends.">Roblox</button>
+            <button class="game-btn" data-desc="A sci-fi online shooter with raids, PvP, and rich storytelling.">Destiny 2</button>
+        </div>
+
+        <div id="description"></div>
+    </div>
+
+    <script>
+        const buttons = document.querySelectorAll('.game-btn');
+        const descriptionDiv = document.getElementById('description');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const desc = button.getAttribute('data-desc');
+                descriptionDiv.textContent = desc;
+            });
+        });
+    </script>
+</body>
+
+</html>
